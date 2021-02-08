@@ -16,4 +16,12 @@ public class Activity2 extends AppCompatActivity {
         setContentView(R.layout.activity_2);
     }
 
+    public void onPress(View view) {
+        Button b = (Button)view;
+        String buttonText = b.getText().toString();
+        TextView textView = findViewById(R.id.textView2);
+        textView.setText("Pressed: " + buttonText);
+    }
+
+
 }
