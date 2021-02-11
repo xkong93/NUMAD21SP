@@ -25,7 +25,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnGotoNewActivity(View view) {
-        Intent intent = new Intent(this, Activity2.class);
+        Intent intent = new Intent(this, SixButtonActivity.class);
+        startActivity(intent);
+    }
+
+    public void OnGotoLinkCollectorActivity(View view) {
+        Intent intent = new Intent(this, LinkCollectorActivity.class);
         startActivity(intent);
     }
 }

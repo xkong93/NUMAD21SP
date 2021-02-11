@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_xk_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NUMAD21SpXuanKong">
-        <activity android:name=".Activity2"></activity>
+        <activity android:name=".LinkCollectorActivity"></activity>
+        <activity android:name=".SixButtonActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

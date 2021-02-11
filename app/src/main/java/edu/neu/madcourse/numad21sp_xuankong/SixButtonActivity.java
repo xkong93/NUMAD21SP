@@ -1,19 +1,21 @@
 package edu.neu.madcourse.numad21sp_xuankong;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class Activity2 extends AppCompatActivity {
+import com.google.android.material.snackbar.Snackbar;
 
+public class SixButtonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_2);
+        setContentView(R.layout.activity_button);
     }
 
     public void onPress(View view) {
