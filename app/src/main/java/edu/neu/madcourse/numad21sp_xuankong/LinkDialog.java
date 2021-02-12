@@ -28,11 +28,8 @@ public class LinkDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-
         LayoutInflater inflater = getActivity().getLayoutInflater();
-
         View view = inflater.inflate(R.layout.addlink_layout_dialog, null);
-
         link = view.findViewById(R.id.linkDialog);
         View dialogLayout = view.findViewById(R.id.dialogLayout);
         builder.setView(view)
@@ -40,15 +37,15 @@ public class LinkDialog extends AppCompatDialogFragment {
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Snackbar snackbar = Snackbar.make(dialogLayout,"True", Snackbar.LENGTH_LONG);
+                        Snackbar snackbar = Snackbar.make(dialogLayout, "True", Snackbar.LENGTH_LONG);
                         snackbar.show();
                     }
                 })
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                            url = link.getText().toString();
-                            dialogListener.applyTexts(url);
+                        url = link.getText().toString();
+                        dialogListener.applyTexts(url);
                     }
                 });
         return builder.create();
