@@ -82,9 +82,9 @@ public class LocatorActivity extends AppCompatActivity {
                         tvLongtitude.setText(String.valueOf(location.getLongitude()));
                     } else {
                         LocationRequest locationReqest = new LocationRequest()
-                                .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
-                                .setInterval(10000)
-                                .setFastestInterval(10000)
+                                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                                .setInterval(500)
+                                .setFastestInterval(500)
                                 .setNumUpdates(1);
 
                         LocationCallback locationCallback = new LocationCallback() {
