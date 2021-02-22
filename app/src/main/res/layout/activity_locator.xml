@@ -6,6 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".LocatorActivity">
 
+    <Button
+        android:id="@+id/LocatorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="127dp"
+        android:text="@string/get_location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.469" />
 
+    <TextView
+        android:id="@+id/Longtitude"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="84dp"
+        android:text="Longtitude"
+        app:layout_constraintBottom_toTopOf="@+id/LocatorButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.226"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/Latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Latitude"
+        app:layout_constraintBottom_toTopOf="@+id/Longtitude"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.777"
+        tools:text="Latitude" />
+
+    <TextView
+        android:id="@+id/tv_latitude"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_longtitude"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.314"
+        app:layout_constraintStart_toEndOf="@+id/Latitude"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.773" />
+
+    <TextView
+        android:id="@+id/tv_longtitude"
+        android:layout_width="80dp"
+        android:layout_height="22dp"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintBottom_toTopOf="@+id/LocatorButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toEndOf="@+id/Longtitude" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

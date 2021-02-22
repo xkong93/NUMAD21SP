@@ -55,5 +55,56 @@ public class LocatorActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
+        if (requestCode == 100 && grantResults.length > 0 && (grantResults[0] + grantResults[1] == PackageManager.PERMISSION_GRANTED)) {
+            getCurentLocation();;
+        } else {
+            Toast.makeText(getApplicationContext(), "Permission denied.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @SuppressLint("MissingPermission")
+    private void getCurentLocation() {
+        LocationManager locationManager = (LocationManager) getSystemService(
+                Context.LOCATION_SERVICE
+        );
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+                || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+            //Get last location
+            fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+                @Override
+                public void onComplete(@NonNull Task<Location> task) {
+                    Location location = task.getResult();
+                    if (location != null) {
+                        tvLatitude.setText(String.valueOf(location.getLatitude()));
+                        tvLongtitude.setText(String.valueOf(location.getLongitude()));
+                    } else {
+                        LocationRequest locationReqest = new LocationRequest()
+                                .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
+                                .setInterval(10000)
+                                .setFastestInterval(10000)
+                                .setNumUpdates(1);
+
+                        LocationCallback locationCallback = new LocationCallback() {
+                            @Override
+                            public void onLocationResult(LocationResult locationResult) {
+                                Location location1 = locationResult.getLastLocation();
+                                tvLatitude.setText(String.valueOf(location1.getLatitude()));
+                                tvLongtitude.setText(String.valueOf(location1.getLongitude()));
+                            }
+                        };
+                        fusedLocationProviderClient.requestLocationUpdates(locationReqest, locationCallback, Looper.myLooper());
+
+                    }
+                }
+            });
+        } else {
+            startActivities(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        }
+    }
+
+    private void startActivities(Intent setFlags) {
+    }
 }
