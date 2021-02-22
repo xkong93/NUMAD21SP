@@ -78,13 +78,17 @@ public class LocatorActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<Location> task) {
                     Location location = task.getResult();
                     if (location != null) {
+//                        LocationRequest locationRequest=new LocationRequest()
+//                                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+//                                .setInterval(10000)
+//                                .setFastestInterval(1000);
                         tvLatitude.setText(String.valueOf(location.getLatitude()));
                         tvLongtitude.setText(String.valueOf(location.getLongitude()));
                     } else {
                         LocationRequest locationReqest = new LocationRequest()
-                                .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
-                                .setInterval(10000)
-                                .setFastestInterval(10000)
+                                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                                .setInterval(500)
+                                .setFastestInterval(500)
                                 .setNumUpdates(1);
 
                         LocationCallback locationCallback = new LocationCallback() {
