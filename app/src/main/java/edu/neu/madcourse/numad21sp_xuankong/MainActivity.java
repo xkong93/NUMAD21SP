@@ -38,4 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, LocatorActivity.class);
         startActivity(intent);
     }
+
+    public void OnGotoServiceActivity(View view) {
+        Intent intent = new Intent(this, ServiceActivity.class);
+        startActivity(intent);
+    }
 }
