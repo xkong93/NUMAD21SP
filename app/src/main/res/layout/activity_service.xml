@@ -10,6 +10,7 @@
         android:id="@+id/buttonGetNewCases"
         android:layout_width="215dp"
         android:layout_height="53dp"
+        android:onClick="runService"
         android:text="Get New Cases"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
