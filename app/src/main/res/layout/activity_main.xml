@@ -7,6 +7,20 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/serviceActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="OnGotoServiceActivity"
+        android:text="Go to Service Activity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83"
+        tools:text="Go to Service Activity" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -14,11 +28,11 @@
         android:text="Hello World!"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.375" />
+        app:layout_constraintVertical_bias="0.241" />
 
     <Button
         android:id="@+id/buttonAbout"
@@ -29,25 +43,11 @@
         android:text="@string/about"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499"
+        app:layout_constraintVertical_bias="0.36"
         tools:text="About" />
-
-    <Button
-        android:id="@+id/buttonNewActivity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="OnGotoNewActivity"
-        android:text="Go to new activity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.601"
-        tools:text="Go to new activity" />
 
     <Button
         android:id="@+id/linkCollectorActivity"
@@ -57,10 +57,10 @@
         android:text="Go to Link Collector Activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.722"
+        app:layout_constraintVertical_bias="0.581"
         tools:text="Go to Link Collector Activity" />
 
     <Button
@@ -71,22 +71,24 @@
         android:text="Go to Locator Activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85"
+        app:layout_constraintVertical_bias="0.709"
         tools:text="Go to Locator Activity" />
 
     <Button
-        android:id="@+id/serviceActivity"
+        android:id="@+id/buttonNewActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="OnGotoServiceActivity"
-        android:text="Go to Service Activity"
+        android:onClick="OnGotoNewActivity"
+        android:text="Go to new activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.431"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.971"
-        tools:text="Go to Service Activity" />
+        app:layout_constraintVertical_bias="0.461"
+        tools:text="Go to new activity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

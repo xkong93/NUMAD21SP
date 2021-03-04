@@ -8,6 +8,7 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,6 +24,8 @@ import java.net.URL;
 
 public class ServiceActivity extends AppCompatActivity {
     Button btService;
+    TextView textViewNewCases;
+
     private Handler handler = new Handler();
     String requestUrl = "https://api.covidtracking.com/v1/us/current.json";
     @Override
@@ -30,10 +33,10 @@ public class ServiceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
         btService = findViewById(R.id.LocatorButton);
+        textViewNewCases = findViewById(R.id.textViewNewCase);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
     }
-
 
     public void runService(View view) {
         serviceRunnable serviceRunnable = new serviceRunnable();
@@ -45,21 +48,14 @@ public class ServiceActivity extends AppCompatActivity {
         public void run() {
             handler.post(() -> {
                 try {
-                    Log.d("ss","test");
-
                     HttpURLConnection httpClient =
                             (HttpURLConnection) new URL(requestUrl).openConnection();
 
                     // optional default is GET
                     httpClient.setRequestMethod("GET");
-
                     //add request header
                     httpClient.setRequestProperty("User-Agent", "Mozilla/5.0");
-
                     int responseCode = httpClient.getResponseCode();
-                    System.out.println("\nSending 'GET' request to URL : " + requestUrl);
-                    System.out.println("Response Code : " + responseCode);
-
                     try (BufferedReader in = new BufferedReader(
                             new InputStreamReader(httpClient.getInputStream()))) {
 
@@ -69,8 +65,8 @@ public class ServiceActivity extends AppCompatActivity {
                         while ((line = in.readLine()) != null) {
                             response.append(line);
                         }
-                        Integer numberNewCases = getNumberNewCases(response.toString());
-                        System.out.println(numberNewCases);
+                        String numberNewCases = getNumberNewCases(response.toString());
+                        textViewNewCases.setText(numberNewCases);
                     }
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
@@ -80,11 +76,11 @@ public class ServiceActivity extends AppCompatActivity {
             });
         }
 
-        private Integer getNumberNewCases(String response) throws JSONException {
+        private String getNumberNewCases(String response) throws JSONException {
             JSONArray jsonArray = new JSONArray(response);
             JSONObject jsonObject = (JSONObject) jsonArray.get(0);
             String newCases = jsonObject.getString("positiveIncrease");
-            return Integer.valueOf(newCases);
+            return newCases;
         }
     }
 
