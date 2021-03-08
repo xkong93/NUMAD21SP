@@ -2,6 +2,7 @@ package edu.neu.madcourse.numad21sp_xuankong;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.StrictMode;
@@ -25,8 +26,7 @@ import java.net.URL;
 public class ServiceActivity extends AppCompatActivity {
     Button btService;
     TextView textViewNewCases;
-
-    private Handler handler = new Handler();
+    private Handler handler;
     String requestUrl = "https://api.covidtracking.com/v1/us/current.json";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +36,8 @@ public class ServiceActivity extends AppCompatActivity {
         textViewNewCases = findViewById(R.id.textViewNewCase);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+        handler = new Handler();
+
     }
 
     public void runService(View view) {
